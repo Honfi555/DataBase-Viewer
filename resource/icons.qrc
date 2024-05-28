@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/toolIcons">
+        <file>icon_plus.png</file>
+        <file>icons_edit.png</file>
+        <file>icons_photo.png</file>
+        <file>icons_search.png</file>
+        <file>incons_delete.png</file>
+    </qresource>
+    <qresource prefix="/settings">
+        <file>icons_printer.png</file>
+        <file>icons_report.png</file>
+        <file>icons_showLevel.png</file>
+        <file>icons_switchLevel.png</file>
+        <file>icons_switchUser.png</file>
+        <file>icons_settings.png</file>
+    </qresource>
+    <qresource prefix="/windowIcons">
+        <file>icons_table.png</file>
+        <file>icons_error.png</file>
+        <file>icons_window.png</file>
+    </qresource>
+</RCC>

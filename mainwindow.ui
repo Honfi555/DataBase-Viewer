@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1127</width>
+    <height>670</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="1,17">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_toolMenu" stretch="1,0,1,1,1,11,11">
+      <item>
+       <widget class="QToolButton" name="toolButton_addRow">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>+</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resource/icons.qrc">
+          <normaloff>:/toolIcons/icon_plus.png</normaloff>:/toolIcons/icon_plus.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="toolButton_UpdateRow">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>U</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resource/icons.qrc">
+          <normaloff>:/toolIcons/icons_edit.png</normaloff>:/toolIcons/icons_edit.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="toolButton_deleteRow">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>-</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resource/icons.qrc">
+          <normaloff>:/toolIcons/incons_delete.png</normaloff>:/toolIcons/incons_delete.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="toolButton_searchData">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>@</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resource/icons.qrc">
+          <normaloff>:/toolIcons/icons_search.png</normaloff>:/toolIcons/icons_search.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="toolButton_viewPhoto">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>:)</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resource/icons.qrc">
+          <normaloff>:/toolIcons/icons_photo.png</normaloff>:/toolIcons/icons_photo.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_db">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_tb">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTableView" name="tableView"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1127</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <property name="icon">
+     <iconset resource="resource/icons.qrc">
+      <normaloff>:/settings/icons_settings.png</normaloff>:/settings/icons_settings.png</iconset>
+    </property>
+    <addaction name="actionSwitch_level"/>
+    <addaction name="actionShow_level"/>
+    <addaction name="actionSwitch_user"/>
+    <addaction name="actionReport"/>
+    <addaction name="actionPrint"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <action name="actionSwitch_level">
+   <property name="icon">
+    <iconset resource="resource/icons.qrc">
+     <normaloff>:/settings/icons_switchLevel.png</normaloff>:/settings/icons_switchLevel.png</iconset>
+   </property>
+   <property name="text">
+    <string>Switch level</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+1</string>
+   </property>
+  </action>
+  <action name="actionReport">
+   <property name="icon">
+    <iconset resource="resource/icons.qrc">
+     <normaloff>:/settings/icons_report.png</normaloff>:/settings/icons_report.png</iconset>
+   </property>
+   <property name="text">
+    <string>Report</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+4</string>
+   </property>
+  </action>
+  <action name="actionShow_level">
+   <property name="icon">
+    <iconset resource="resource/icons.qrc">
+     <normaloff>:/settings/icons_showLevel.png</normaloff>:/settings/icons_showLevel.png</iconset>
+   </property>
+   <property name="text">
+    <string>Show level</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+2</string>
+   </property>
+  </action>
+  <action name="actionSwitch_user">
+   <property name="icon">
+    <iconset resource="resource/icons.qrc">
+     <normaloff>:/settings/icons_switchUser.png</normaloff>:/settings/icons_switchUser.png</iconset>
+   </property>
+   <property name="text">
+    <string>Switch user</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+3</string>
+   </property>
+  </action>
+  <action name="actionPrint">
+   <property name="icon">
+    <iconset resource="resource/icons.qrc">
+     <normaloff>:/settings/icons_printer.png</normaloff>:/settings/icons_printer.png</iconset>
+   </property>
+   <property name="text">
+    <string>Print</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+5</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="resource/icons.qrc"/>
+ </resources>
+ <connections/>
+</ui>
