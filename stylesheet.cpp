@@ -205,3 +205,23 @@ QString StyleSheet::messageBox_styleSheet(int font_size) const
             "}");
 }
 
+
+QString StyleSheet::listWidget_styleSheet(int font_size) const
+{
+    return ("QListWidget {"
+            "background-color: " + this->second_color_ + ";"
+            "border-radius: 7px;"
+            "font-size: " + QString::number(font_size) + ";"
+                   "border: 2px solid " + this->border_color_ + ";"
+            "color: " + this->text_color_ + ";"
+            "}"
+
+            "QListWidget::item:hover {"
+            "background-color: " + this->hover_color_ + ";"
+            "}"
+
+            "QListWidget::item:selected {"
+            "background-color: " + this->hover_color_ + ";"
+            "color: " + this->text_color_ + ";"
+            "}");
+}

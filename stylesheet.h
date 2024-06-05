@@ -37,6 +37,8 @@ struct StyleSheet
 
     [[nodiscard]] QString messageBox_styleSheet(int font_size=11) const;
 
+    [[nodiscard]] QString listWidget_styleSheet(int font_size=11) const;
+
 private:
     QString main_color_;
     QString second_color_;

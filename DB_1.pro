@@ -12,9 +12,11 @@ SOURCES += \
     Database/connected_level.cpp \
     Database/database.cpp \
     Database/orm.cpp \
+    IODataBase/repotstemplates.cpp \
     IODataBase/iodatabase.cpp \
     Widgets/autorisation.cpp \
     Widgets/dialog.cpp \
+    Widgets/reportdialog.cpp \
     main.cpp \
     mainwindow.cpp \
     Widgets/search.cpp \
@@ -25,10 +27,12 @@ HEADERS += \
     Database/connected_level.h \
     Database/database.h \
     Database/orm.h \
+    IODataBase/repotstemplates.h \
     IODataBase/iodatabase.h \
     IODataBase/printer.h \
     Widgets/autorisation.h \
     Widgets/dialog.h \
+    Widgets/reportdialog.h \
     mainwindow.h \
     Widgets/search.h \
     Widgets/searchtable.h \
@@ -38,6 +42,7 @@ HEADERS += \
 FORMS += \
     Widgets/autorisation.ui \
     Widgets/dialog.ui \
+    Widgets/reportdialog.ui \
     mainwindow.ui \
     Widgets/search.ui \
     Widgets/searchtable.ui

@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
 #include <QListWidget>
 #include <QSqlRelationalTableModel>
 #include <QMessageBox>
@@ -14,12 +15,14 @@
 #include "IODataBase/printer.h"
 #include "DataBase/connected_level.h"
 #include "DataBase/orm.h"
+#include "IODataBase/repotstemplates.h"
 
 
 MainWindow::MainWindow(QWidget *parent
                        , Dialog* dialog_window
                        , Search *search_window
                        , SearchTable *searchTable_window
+                       , ReportDialog *report_dialog
                        , Autorisation *autorisation_window)
     : QMainWindow(parent)
     , ui_(new Ui::MainWindow)
@@ -27,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent
     , dialog_window_(dialog_window)
     , search_window_(search_window)
     , searchTable_window_(searchTable_window)
+    , report_dialog_(report_dialog)
     , autorisation_window_(autorisation_window)
     , connection_type_(QConnectionType::Connected)
 {
@@ -46,6 +50,8 @@ MainWindow::MainWindow(QWidget *parent
     connect(search_window_, SIGNAL(searchEntered()), this, SLOT(search_data()));
 
     connect(autorisation_window_, SIGNAL(credential_entered()), this, SLOT(switch_user()));
+
+    connect(report_dialog_, SIGNAL(reportEntered(ReportTemplate)), this, SLOT(choose_report(ReportTemplate)));
 
     connect(ui_->actionSwitch_level, SIGNAL(triggered()), this, SLOT(action_switchLevel_triggered()));
     connect(ui_->actionShow_level, SIGNAL(triggered()), this, SLOT(action_showLevel_triggered()));
@@ -157,10 +163,13 @@ void MainWindow::show_autorisation_window()
 /*Print report.*/
 void MainWindow::action_print_triggered()
 {
-    QSqlRelationalTableModel *model = this->db_->get_allData(ui_->comboBox_tb->currentText());
+    QVector<ReportTemplate> templates;
+    for (const auto &template_path : reportsTemplatesPaths(R"(D:\repos\qt\DB_1\resource\repots templates)")) {
+        templates.push_back(ReportTemplate(template_path));
+    }
 
-    print_table(model);
-    delete model;
+    this->report_dialog_->update_widget(templates);
+    this->report_dialog_->show();
 }
 
 
@@ -327,7 +336,7 @@ void MainWindow::on_toolButton_viewPhoto_clicked()
     StyleSheet style_sheet;
     QMessageBox message_box;
     message_box.setWindowTitle("Photo viewer");
-    message_box.setIconPixmap(QPixmap(selected.at(0).data().toString()).scaled(800, 800, Qt::KeepAspectRatio));
+    message_box.setIconPixmap(QPixmap(selected.at(0).data().toString()).scaled(800, 600, Qt::KeepAspectRatio));
     message_box.setStandardButtons(QMessageBox::Ok);
     message_box.setWindowIcon(QIcon(":/toolIcons/icons_photo.png"));
     message_box.setStyleSheet(style_sheet.messageBox_styleSheet());
@@ -372,3 +381,20 @@ void MainWindow::apply_styleSheet()
     ui_->toolButton_viewPhoto->setStyleSheet(style_sheet.toolButton_styleSheet());
 }
 
+
+void MainWindow::choose_report(ReportTemplate report)
+{
+    if (!report.isStandart()) {
+        print_report(report.name()
+                     , report.top()
+                     , report.bottom()
+                     , report.signature()
+                     , report.model(this->db_->get_database()));
+        return;
+    }
+
+    QSqlRelationalTableModel *model = this->db_->get_allData(ui_->comboBox_tb->currentText());
+
+    print_table(model);
+    delete model;
+}
