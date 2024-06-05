@@ -28,8 +28,8 @@ SearchTable::~SearchTable()
 void SearchTable::update_table(QSqlRelationalTableModel *search_values)
 {
     this->ui_->tableView_values->clearSelection();
-
     this->ui_->tableView_values->setModel(search_values);
+    this->ui_->tableView_values->resizeColumnsToContents();
 }
 
 

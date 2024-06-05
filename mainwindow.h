@@ -9,6 +9,7 @@
 #include "Widgets/search.h"
 #include "Widgets/searchtable.h"
 #include "Widgets/autorisation.h"
+#include "Widgets/reportdialog.h"
 #include "DataBase/database.h"
 
 
@@ -28,6 +29,7 @@ public:
                         , Dialog *dialog_window = new Dialog()
                         , Search *search_window = new Search()
                         , SearchTable *searchTable_window = new SearchTable()
+                        , ReportDialog *report_dialog = new ReportDialog()
                         , Autorisation *autorisation_window = new Autorisation());
     ~MainWindow();
 
@@ -66,6 +68,8 @@ private slots:
 
     void on_toolButton_viewPhoto_clicked();
 
+    void choose_report(ReportTemplate);
+
 private:
     void print_error(const QString &window_tittle, const QString &error, const QString &icon_path);
 
@@ -76,6 +80,7 @@ private:
     Dialog* dialog_window_;
     Search* search_window_;
     SearchTable* searchTable_window_;
+    ReportDialog *report_dialog_;
     Autorisation* autorisation_window_;
     QConnectionType connection_type_;
 };
